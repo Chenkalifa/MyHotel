@@ -199,14 +199,10 @@ public class MyProfileFragment extends Fragment implements ListView.OnItemClickL
             case 3:
                 if(!isResHistoryEmpty &&upcomingResList.size()>0){
                     SummaryHistoryFragment summaryHistoryFragment=SummaryHistoryFragment.getInstance(getActivity(), upcomingResList, "Upcoming");
-//                    WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-//                    lp.copyFrom(summaryHistoryFragment.getDialog().getWindow().getAttributes());
-//                    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-//                    lp.height = WindowManager.LayoutParams.MATCH_PARENT;
-//                    summaryHistoryFragment.getDialog().getWindow().setAttributes(lp);
                     summaryHistoryFragment.show(getFragmentManager(),"summaryHistoryFragment");
                 }else{
-                    Toast.makeText(getActivity(), "there are no future reservations to show", Toast.LENGTH_LONG).show();
+                    MyToast.makeToast(getActivity(), "there are no future reservations to show");
+//                    Toast.makeText(getActivity(), "there are no future reservations to show", Toast.LENGTH_LONG).show();
                     Log.i("myApp", "no future reservations");
                 }
 
@@ -216,7 +212,8 @@ public class MyProfileFragment extends Fragment implements ListView.OnItemClickL
                     SummaryHistoryFragment summaryHistoryFragment=SummaryHistoryFragment.getInstance(getActivity(), pastResList, "History");
                     summaryHistoryFragment.show(getFragmentManager(),"summaryHistoryFragment");
                 }else{
-                    Toast.makeText(getActivity(), "there are no past reservations to show", Toast.LENGTH_LONG).show();
+                    MyToast.makeToast(getActivity(), "there are no past reservations to show");
+//                    Toast.makeText(getActivity(), "there are no past reservations to show", Toast.LENGTH_LONG).show();
                     Log.i("myApp", "no past reservations");
                 }
                 break;

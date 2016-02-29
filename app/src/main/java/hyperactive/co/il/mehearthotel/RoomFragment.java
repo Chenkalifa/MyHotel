@@ -195,7 +195,8 @@ public class RoomFragment extends Fragment {
                         getActivity().setResult(Activity.RESULT_OK, intent);
                         getActivity().finish();
                     }else{
-                        Toast.makeText(getActivity(), type+" isn't available at your dates", Toast.LENGTH_LONG).show();
+                        MyToast.makeToast(getActivity(), type+" isn't available at your dates");
+//                        Toast.makeText(getActivity(), type+" isn't available at your dates", Toast.LENGTH_LONG).show();
                     }
 
                 }else{

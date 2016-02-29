@@ -482,7 +482,8 @@ public class ReservationActivity extends AppCompatActivity
 
     private boolean checkCurrentDate() {
         if (currentDateCalendar.compareTo(today) < 0) {
-            Toast.makeText(ReservationActivity.this, "can't book past days", Toast.LENGTH_LONG).show();
+            MyToast.makeToast(ReservationActivity.this, "can't book past days");
+//            Toast.makeText(ReservationActivity.this, "can't book past days", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

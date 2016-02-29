@@ -63,4 +63,6 @@
     <dimen name="input_btn_margin">10dp</dimen>
     <dimen name="progress_bar_margin">5dp</dimen>
     <dimen name="progress_bar_10_margin">10dp</dimen>
+    <dimen name="toast_text_size">15sp</dimen>
+    <dimen name="toast_padding">10dp</dimen>
 </resources>

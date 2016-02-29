@@ -219,11 +219,11 @@ public class MyProfileActivity extends AppCompatActivity
             @Override
             public void done(ParseException e) {
                 if (e == null)
-                    Toast.makeText(MyProfileActivity.this, "changes succeeded!" + "\nnew " + tempInputType + ":" + value, Toast.LENGTH_LONG).show();
-//                    Log.i("myApp", "changes succeed, new "+tempInputType+":"+value);
+                    MyToast.makeToast(MyProfileActivity.this, "changes succeeded!" + "\nnew " + tempInputType + ":" + value);
+//                    Toast.makeText(MyProfileActivity.this, "changes succeeded!" + "\nnew " + tempInputType + ":" + value, Toast.LENGTH_LONG).show();
                 else
-                    Toast.makeText(MyProfileActivity.this, "error:" + e.getMessage(), Toast.LENGTH_LONG).show();
-//                    Log.i("myApp", "error:"+e.getMessage());
+                MyToast.makeToast(MyProfileActivity.this, "error:" + e.getMessage());
+//                    Toast.makeText(MyProfileActivity.this, "error:" + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
         if (myProfileFragment == null)

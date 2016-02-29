@@ -113,8 +113,8 @@ public class RoomListActivity extends AppCompatActivity {
     }
 
     public void postResSaved(int reservationNumber) {
-        Toast.makeText(this, "reservation saved!", Toast.LENGTH_LONG).show();
-//        String temp = getSharedPreferences(RES_HISTORY, MODE_PRIVATE).getString("history", "empty");
+        MyToast.makeToast(this, "reservation saved!");
+//        Toast.makeText(this, "reservation saved!", Toast.LENGTH_LONG).show();
         final int resNumber = reservationNumber;
         new Thread() {
             @Override

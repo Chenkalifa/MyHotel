@@ -79,7 +79,8 @@ public class ContactFragment extends DialogFragment implements View.OnClickListe
                     startActivity(Intent.createChooser(contactIntent, "Send email..."));
                     getDialog().dismiss();
                 }else{
-                    Toast.makeText(getActivity(), getResources().getString(R.string.contact_no_subject_picked), Toast.LENGTH_LONG).show();
+                    MyToast.makeToast(getActivity(), getResources().getString(R.string.contact_no_subject_picked));
+//                    Toast.makeText(getActivity(), getResources().getString(R.string.contact_no_subject_picked), Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.ic_close:

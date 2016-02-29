@@ -80,11 +80,13 @@ public class InputDialogFragment extends DialogFragment implements View.OnClickL
         final String email="Email";
         final String password="Password";
         if(inputValue.length()==0){
-            Toast.makeText(getActivity(), title + " can't be empty", Toast.LENGTH_LONG).show();
+            MyToast.makeToast(getActivity(), title + " can't be empty");
+//            Toast.makeText(getActivity(), title + " can't be empty", Toast.LENGTH_LONG).show();
             return false;
         }
         if(inputValue.contains(" ")){
-            Toast.makeText(getActivity(), title+" can't contains spaces", Toast.LENGTH_LONG).show();
+            MyToast.makeToast(getActivity(), title+" can't contains spaces");
+//            Toast.makeText(getActivity(), title+" can't contains spaces", Toast.LENGTH_LONG).show();
             return false;
         }
         switch (title){
@@ -92,13 +94,15 @@ public class InputDialogFragment extends DialogFragment implements View.OnClickL
                 if(isValidEmail(inputValue))
                     return true;
                 else
-                    Toast.makeText(getActivity(), inputValue+" isn't valid email", Toast.LENGTH_LONG).show();
+                MyToast.makeToast(getActivity(), inputValue+" isn't valid email");
+//                    Toast.makeText(getActivity(), inputValue+" isn't valid email", Toast.LENGTH_LONG).show();
                 break;
             case password:
                 if(inputValue.length()>=6)
                     return true;
                 else
-                    Toast.makeText(getActivity(), title+" must be at least 6 chars", Toast.LENGTH_LONG).show();
+                MyToast.makeToast(getActivity(), title+" must be at least 6 chars");
+//                    Toast.makeText(getActivity(), title+" must be at least 6 chars", Toast.LENGTH_LONG).show();
                 break;
                 default:
                     return true;

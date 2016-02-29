@@ -99,14 +99,16 @@ public class SignUpFragment extends DialogFragment implements View.OnClickListen
             user.signUpInBackground(new SignUpCallback() {
                 public void done(ParseException e) {
                     if (e == null) {
-                        Toast.makeText(getActivity(), "saved", Toast.LENGTH_LONG).show();
+                        MyToast.makeToast(getActivity(), "saved");
+//                        Toast.makeText(getActivity(), "saved", Toast.LENGTH_LONG).show();
                         Intent intent=new Intent(getActivity(), MyProfileActivity.class);
                         intent.putExtra("username", user.getUsername());
                         intent.putExtra("password", passwordEt.getText().toString().trim().toLowerCase());
                         startActivity(intent);
 
                     } else {
-                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        MyToast.makeToast(getActivity(), e.getMessage());
+//                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
                         Log.e("myApp", "user register error", e);
                     }
                 }
@@ -135,32 +137,34 @@ public class SignUpFragment extends DialogFragment implements View.OnClickListen
             String key = entry.getKey();
             String value = entry.getValue();
             if(value.length()==0){
-                Toast.makeText(getActivity(), key+" field is empty", Toast.LENGTH_LONG).show();
-//                Log.i("myApp", key+" field is empty");
+                MyToast.makeToast(getActivity(), key + " field is empty");
+//                Toast.makeText(getActivity(), key+" field is empty", Toast.LENGTH_LONG).show();
                 return false;
             }
             if(value.contains(" ")){
-                Toast.makeText(getActivity(), key+" can't contains spaces", Toast.LENGTH_LONG).show();
+                MyToast.makeToast(getActivity(), key + " can't contains spaces");
+//                Toast.makeText(getActivity(), key+" can't contains spaces", Toast.LENGTH_LONG).show();
                 return false;
             }
         }
         if(mPassword.contains(" ")){
-            Toast.makeText(getActivity(), "password can't contains spaces", Toast.LENGTH_LONG).show();
+            MyToast.makeToast(getActivity(), "password can't contains spaces");
+//            Toast.makeText(getActivity(), "password can't contains spaces", Toast.LENGTH_LONG).show();
             return false;
         }
         if (!isValidEmail(input.get(email))){
-            Toast.makeText(getActivity(), input.get(email)+" is not a valid email address", Toast.LENGTH_LONG).show();
-//            Log.i("myApp", input.get(email)+" is not a valid email address");
+            MyToast.makeToast(getActivity(), input.get(email) + " is not a valid email address");
+//            Toast.makeText(getActivity(), input.get(email)+" is not a valid email address", Toast.LENGTH_LONG).show();
             return false;
         }
         if(!input.get(email).equals(input.get(verify))) {
-            Toast.makeText(getActivity(), "verify field must equals email field", Toast.LENGTH_LONG).show();
-//            Log.i("myApp", "verify must equals email");
+            MyToast.makeToast(getActivity(), "verify field must equals email field");
+//            Toast.makeText(getActivity(), "verify field must equals email field", Toast.LENGTH_LONG).show();
             return false;
         }
         if(input.get(password).length()<6){
-            Toast.makeText(getActivity(), "password must be at least 6 chars", Toast.LENGTH_LONG).show();
-//            Log.i("myApp", "password must be at least 6 chars");
+            MyToast.makeToast(getActivity(), "password must be at least 6 chars");
+//            Toast.makeText(getActivity(), "password must be at least 6 chars", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

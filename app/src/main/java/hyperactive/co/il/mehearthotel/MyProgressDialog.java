@@ -3,6 +3,7 @@ package hyperactive.co.il.mehearthotel;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -25,7 +26,9 @@ public class MyProgressDialog extends ProgressDialog {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.prgress_dialog_layout);
         TextView titleTv= (TextView) findViewById(R.id.progress_title_tv);
+        titleTv.setTypeface(MyApp.FONT_SECONDARY);
         TextView messageTv= (TextView) findViewById(R.id.progress_message_tv);
+        messageTv.setTypeface(MyApp.FONT_MAIN);
         titleTv.setText(title);
         messageTv.setText(message);
 //        ProgressBar progressBar= (ProgressBar) findViewById(R.id.progressBar);
