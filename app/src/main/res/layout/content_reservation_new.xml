@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reservation_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="hyperactive.co.il.mehearthotel.ReservationActivity">
+
+    <LinearLayout
+        android:id="@+id/datesLayoutView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/mediumPadding"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:gravity="center"
+            android:id="@+id/check_inView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/smallPadding"
+            android:orientation="vertical"
+            android:paddingRight="@dimen/reservation_dates_padding">
+
+
+            <TextView
+                android:id="@+id/check_inTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_in"
+                android:textSize="@dimen/meduimSizeFont" />
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="@color/textColor" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/check_inDateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/check_inTv"
+                android:textAlignment="center"
+                android:textSize="@dimen/smallSizeFont" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:id="@+id/check_outView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/smallPadding"
+            android:layout_toRightOf="@id/numberOfDaysTV"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/reservation_dates_padding">
+
+            <TextView
+                android:id="@+id/check_outTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_out"
+                android:textSize="@dimen/meduimSizeFont" />
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="@color/textColor" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/check_outDateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/check_outTv"
+                android:textAlignment="center"
+                android:textSize="@dimen/smallSizeFont" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/numberOfDaysTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/datesLayoutView"
+        android:layout_marginLeft="@dimen/reservation_nigths_tv_left_margin"
+        android:layout_marginRight="@dimen/smallPadding"
+        android:layout_marginTop="@dimen/mediumPadding"
+        android:text="@string/defultStay"
+        android:textSize="@dimen/smallSizeFont" />
+
+    <LinearLayout
+        android:id="@+id/table_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numberOfDaysTV"
+        android:layout_marginTop="@dimen/reservation_rooms_tabe_top_margin"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/titles_conatiner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/roomsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/reservation_lines_side_margin"
+                android:text="@string/rooms"
+                android:textSize="@dimen/smallSizeFont" />
+
+            <TextView
+                android:id="@+id/adultsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/reservation_dates_padding"
+                android:layout_marginRight="@dimen/reservation_dates_padding"
+                android:text="@string/adults18"
+                android:textSize="@dimen/smallSizeFont" />
+
+            <TextView
+                android:id="@+id/childrenTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/reservation_dates_padding"
+                android:text="@string/children"
+                android:textSize="@dimen/smallSizeFont" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/reservation_big_divider_side_margin"
+            android:layout_marginRight="@dimen/reservation_big_divider_side_margin"
+            android:background="@color/textColor" />
+
+        <LinearLayout
+            android:id="@+id/spinners_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/roomsSpinner"
+                android:layout_width="@dimen/reservation_spinner_width"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/reservation_spinner_margin"
+                android:entries="@array/rooms"
+                android:popupBackground="@color/colorPrimary"
+                android:prompt="@string/rooms" />
+
+            <Spinner
+                android:id="@+id/adultsSpinner"
+                android:layout_width="@dimen/reservation_spinner_width"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adultsTv"
+                android:layout_marginLeft="@dimen/reservation_spinner_margin"
+                android:layout_marginRight="@dimen/reservation_spinner_margin"
+                android:entries="@array/adults"
+                android:popupBackground="@color/colorPrimary"
+                android:prompt="@string/persons" />
+
+            <Spinner
+                android:id="@+id/childrenSpinner"
+                android:layout_width="@dimen/reservation_spinner_width"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/childrenTv"
+                android:layout_marginLeft="@dimen/reservation_spinner_margin"
+                android:entries="@array/children"
+                android:popupBackground="@color/colorPrimary"
+                android:prompt="@string/children" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/continueResrvationBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/table_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/reservation_cuntinue_btn_top_margin"
+        android:background="@drawable/btn_background"
+        android:gravity="center"
+        android:paddingLeft="@dimen/btn_side_padding"
+        android:paddingRight="@dimen/btn_side_padding"
+        android:paddingBottom="@dimen/btn_top_bottom_padding"
+        android:paddingTop="@dimen/btn_top_bottom_padding"
+        android:text="@string/continueReservation"
+        android:textColor="@color/btn_color"
+        android:textSize="@dimen/meduimSizeFont" />
+
+</RelativeLayout>

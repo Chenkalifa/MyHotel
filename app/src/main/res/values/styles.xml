@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--   <item name="android:background">@color/backgroundColor</item> -->
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:colorBackground">@drawable/backround</item>
+        <item name="android:actionMenuTextColor">@color/textColor</item>
+        <!--   <item name="android:fontFamily">sans-serif-medium</item> -->
+    </style>
+
+    <style name="simpleActivity_style"
+        parent="AppTheme">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textSize">@dimen/mediumSizeFont</item>
+    </style>
+
+    <style name="NoActionBar" parent="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:colorBackground">@color/backgroundColor</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+
+    </style>
+
+    <style name="NoTitleScreen" parent="@style/AppTheme">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+    <style name="ShdowText">
+        <item name="android:paddingLeft">4px</item>
+        <item name="android:paddingBottom">4px</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:shadowColor">@color/colorPrimary</item>
+        <item name="android:shadowDx">4</item>
+        <item name="android:shadowDy">4</item>
+        <item name="android:shadowRadius">4</item>
+    </style>
+
+</resources>

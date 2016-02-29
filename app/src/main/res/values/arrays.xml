@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="myprofile_options">
+        <item>@string/edit_username</item>
+        <item>@string/edit_email</item>
+        <item>@string/change_password</item>
+        <item>@string/reservation_upcoming</item>
+        <item>@string/reservation_history</item>
+    </string-array>
+    <string-array name="contact_subjects">
+        <item>@string/contact_subject_hint</item>
+        <item>@string/contact_cancel_res</item>
+        <item>@string/contact_change_res</item>
+        <item>@string/contact_feedback</item>
+        <item>@string/contact_general_issue</item>
+        <item>@string/contact_technical_issue</item>
+        <item>@string/contact_other</item>
+    </string-array>
+    <string-array name="tourist_info_urls">
+        <item>http://www.minisrael.co.il/en</item>
+        <item>http://haira.co.il/en/</item>
+        <item>http://www.jff.org.il/?cl=en</item>
+        <item>http://www.machne.co.il/en/</item>
+        <item>http://www.haatika.co.il/en/</item>
+        <item>http://www.imj.org.il/en/</item>
+        <item>http://www.yadvashem.org/</item>
+        <item>http://en.botanic.co.il/</item>
+        <item>http://mishkenot.org.il/hanging-out/</item>
+        <item>http://www.touristisrael.com/ramparts-walk/7767/</item>
+    </string-array>
+    <string-array name="tourist_info_titles">
+        <item>Mini Israel</item>
+        <item>Jerusalem Attractions</item>
+        <item>Jerusalem Film Festival</item>
+        <item>Machane Yehuda Market</item>
+        <item>Old City</item>
+        <item>The Israel Museum</item>
+        <item>Yad VaShem</item>
+        <item>Botanic Garden</item>
+        <item>Mishkenot Sha\'ananim</item>
+        <item>Ramparts Walk</item>
+    </string-array>
+    <array name="tourist_info_images">
+        <item>@drawable/info_mini_israel</item>
+        <item>@drawable/info_downtown_jerusalem</item>
+        <item>@drawable/info_jerusalem_film_festival</item>
+        <item>@drawable/info_mahane_yehuda</item>
+        <item>@drawable/info_jerusalem_old_city</item>
+        <item>@drawable/info_the_israel_museum_jerusalem</item>
+        <item>@drawable/info_yadvashem</item>
+        <item>@drawable/info_jerusalem_botanical_gardens</item>
+        <item>@drawable/info_mishkenot_shaananim</item>
+        <item>@drawable/info_ramparts_walk</item>
+    </array>
+</resources>

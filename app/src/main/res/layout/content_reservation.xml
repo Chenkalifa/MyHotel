@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reservation_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="hyperactive.co.il.mehearthotel.ReservationActivity"
+    tools:showIn="@layout/app_bar_reservation">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/mediumPadding"
+        android:id="@+id/datesLayoutView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/check_inView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/smallPadding">
+
+            <TextView
+                android:id="@+id/check_inTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/arrive"
+                android:textSize="@dimen/meduimSizeFont" />
+
+            <TextView
+                android:id="@+id/check_inDateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/check_inTv"
+                android:textAlignment="center"
+                android:textSize="@dimen/smallSizeFont" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/numberOfDaysTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/smallPadding"
+            android:layout_marginRight="@dimen/smallPadding"
+            android:layout_marginTop="@dimen/mediumPadding"
+            android:layout_toRightOf="@id/check_inView"
+            android:text="@string/defultStay"
+            android:textSize="@dimen/smallSizeFont" />
+
+        <RelativeLayout
+            android:id="@+id/check_outView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/smallPadding"
+            android:layout_toRightOf="@id/numberOfDaysTV">
+
+            <TextView
+                android:id="@+id/check_outTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/depart"
+                android:textSize="@dimen/meduimSizeFont" />
+
+            <TextView
+                android:id="@+id/check_outDateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/check_outTv"
+                android:textAlignment="center"
+                android:textSize="@dimen/smallSizeFont" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <hyperactive.co.il.mehearthotel.ScrollViewWithMaxHeight
+        android:id="@+id/table_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/datesLayoutView">
+
+
+        <LinearLayout
+            android:id="@+id/titles_conatiner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/spinners_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/roomsLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/mediumPadding">
+
+                    <TextView
+                        android:id="@+id/roomsTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rooms"
+                        android:textSize="@dimen/smallSizeFont" />
+
+                    <Spinner
+                        android:popupBackground="@color/colorPrimary"
+                        android:id="@+id/roomsSpinner"
+                        android:layout_width="@dimen/roomTextWidth"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/roomsTv"
+                        android:entries="@array/rooms"
+                        android:prompt="@string/rooms" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/adultsLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/mediumPadding">
+
+                    <TextView
+                        android:id="@+id/adultsTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/adults18"
+                        android:textSize="@dimen/smallSizeFont" />
+
+                    <Spinner
+                        android:popupBackground="@color/colorPrimary"
+                        android:id="@+id/adultsSpinner"
+                        android:layout_width="@dimen/adultTextWidth"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/adultsTv"
+                        android:entries="@array/adults"
+                        android:prompt="@string/persons" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/childrenLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/mediumPadding">
+
+                    <TextView
+                        android:id="@+id/childrenTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/children"
+                        android:textSize="@dimen/smallSizeFont" />
+
+                    <Spinner
+                        android:popupBackground="@color/colorPrimary"
+                        android:id="@+id/childrenSpinner"
+                        android:layout_width="@dimen/childrenTextWidth"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/childrenTv"
+                        android:entries="@array/children"
+                        android:prompt="@string/children" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </hyperactive.co.il.mehearthotel.ScrollViewWithMaxHeight>
+
+    <TextView
+
+        android:id="@+id/continueResrvationBtn"
+        android:layout_below="@id/table_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/largePadding"
+        android:background="@drawable/textviewbackgroundshape"
+        android:gravity="center"
+        android:padding="@dimen/mediumPadding"
+        android:text="@string/continueReservation"
+        android:textSize="@dimen/meduimSizeFont" />
+
+</RelativeLayout>

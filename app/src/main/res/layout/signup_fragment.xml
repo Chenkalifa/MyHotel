@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/signupFragmentContainer"
+    android:gravity="center|center_horizontal"
+    android:background="@android:color/black">
+    <TextView
+        android:textAlignment="center"
+        android:textSize="@dimen/titelSize"
+        android:text="Sign up Window"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:textColor="@color/startGradient"
+        android:textAlignment="center"
+        android:textColorHint="@color/startGradient"
+        android:hint="@string/username"
+        android:id="@+id/signUp_usernameEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:textColor="@color/startGradient"
+        android:textAlignment="center"
+        android:textColorHint="@color/startGradient"
+        android:hint="@string/email"
+        android:id="@+id/signUp_emailEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:textColor="@color/startGradient"
+        android:textAlignment="center"
+        android:textColorHint="@color/startGradient"
+        android:hint="@string/re_email"
+        android:id="@+id/signUp_emailVerifyEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:textColor="@color/startGradient"
+        android:textAlignment="center"
+        android:textColorHint="@color/startGradient"
+        android:hint="@string/password"
+        android:id="@+id/signUp_passwordEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:background="@drawable/textviewbackgroundshape"
+            android:id="@+id/signUp_cuntinueBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/mediumPadding"
+            android:text="@string/_continue" />
+
+        <TextView
+            android:background="@drawable/textviewbackgroundshape"
+            android:id="@+id/signUp_cancelBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/mediumPadding"
+            android:text="@string/cancel" />
+    </LinearLayout>
+
+</LinearLayout>

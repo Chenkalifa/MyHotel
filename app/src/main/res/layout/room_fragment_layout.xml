@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/roomFragmentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/roomDescriptionTv"
+        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="@dimen/meduimSizeFont" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_background">
+
+        <ImageView
+            android:background="@color/textColor"
+            android:padding="@dimen/room_fragment_image_padding"
+            android:layout_margin="@dimen/room_fragment_image_margin"
+            android:id="@+id/roomImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:id="@+id/roomPriceAvilabilityContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/smallPadding"
+        android:paddingRight="@dimen/smallPadding">
+
+        <TextView
+            android:id="@+id/roomPriceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            android:textSize="@dimen/smallSizeFont" />
+
+        <TextView
+            android:id="@+id/roomAvilabiltyTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/avilabilty"
+            android:textSize="@dimen/smallSizeFont" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/bookBtn"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_background"
+        android:paddingLeft="@dimen/btn_side_padding"
+        android:paddingRight="@dimen/btn_side_padding"
+        android:paddingTop="@dimen/btn_top_bottom_padding"
+        android:paddingBottom="@dimen/btn_top_bottom_padding"
+        android:text="@string/book"
+        android:textAlignment="center"
+        android:textColor="@color/btn_color"
+        android:textSize="@dimen/titelSize" />
+
+</LinearLayout>

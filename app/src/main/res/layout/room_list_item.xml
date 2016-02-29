@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+    <TextView
+        android:padding="@dimen/mediumPadding"
+        android:text="hello"
+        android:gravity="center"
+        android:id="@+id/room_list_itemTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/meduimSizeFont"
+        />
+    <TextView
+        android:padding="@dimen/smallPadding"
+        android:text="@string/price"
+
+        android:id="@+id/room_list_priceTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/smallSizeFont"
+        />
+
+    <ImageView
+        android:background="@color/textColor"
+        android:padding="@dimen/room_fragment_image_padding"
+        android:layout_margin="@dimen/room_fragment_image_margin"
+        android:layout_gravity="center"
+        android:id="@+id/room_list_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"/>
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1f2041</color>
+    <color name="colorPrimary50transparent">#801f2041</color>
+    <color name="colorPrimary15transparent">#A61f2041</color>
+    <color name="colorPrimaryDark">#196f9f</color>
+    <color name="startGradient">#593959</color>
+    <color name="colorAccent">#c15a7d</color>
+    <color name="purple">#5c4f78</color>
+    <color name="backgroundColor">#917ba4</color>
+    <color name="textColor">#cee5f2</color>
+    <color name="background_material_light">#ffffff</color>
+    <color name="white">#f2f2f2</color>
+    <color name="splash_1_Primary">#8b03df</color>
+</resources>

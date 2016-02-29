@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/AppTheme.NoActionBar"
+    android:orientation="vertical"
+    android:id="@+id/splash_container"
+    tools:context="hyperactive.co.il.mehearthotel.SpalshScreenActivity"
+    >
+    <ImageView
+    android:id="@+id/logo_Iv"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_centerInParent="true"
+    android:layout_marginBottom="@dimen/logo_bottom_margin"
+    android:scaleType="centerCrop"
+    android:src="@drawable/logo_only_h" />
+    <ImageView
+        android:id="@+id/logo_white_iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/logo_bottom_margin"
+        android:scaleType="centerCrop"
+        android:src="@drawable/h_wihte" />
+
+</RelativeLayout>

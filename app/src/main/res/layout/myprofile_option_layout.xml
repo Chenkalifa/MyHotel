@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv"
+    android:textColor="@color/textColor"
+    android:padding="@dimen/myprofile_option_textview_padding"
+    android:layout_width="340dp"
+    android:background="@color/colorPrimary15transparent"
+    android:singleLine="true"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_height="match_parent"/>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center|center_horizontal"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_margin="@dimen/progress_bar_margin"
+        android:id="@+id/progress_title_tv"
+        android:gravity="left"
+        android:text="Progress"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/btn_text_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_margin="@dimen/progress_bar_margin"
+        android:id="@+id/progress_message_tv"
+        android:gravity="center"
+        android:text="Message"
+        android:textColor="@color/textColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:layout_margin="@dimen/progress_bar_10_margin"
+        android:interpolator="@android:interpolator/accelerate_decelerate"
+        android:indeterminateDrawable="@drawable/indeterminate_progress_bar_anim"
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateBehavior="cycle"
+         >
+    </ProgressBar>
+
+</LinearLayout>

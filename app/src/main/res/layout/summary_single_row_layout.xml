@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/summary_single_row_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/btn_not_pressed_shape"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/simple_border"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/summary_edge_views_top_bottom_margin"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/summary_checkin_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/summary_date_linaerlayout_margin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_in"
+                    android:textSize="@dimen/smallSizeFont" />
+
+                <View
+                    android:layout_width="@dimen/small_divider_width"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_gravity="center"
+                    android:background="@color/textColor" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/summary_checkin_dayTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/summary_4dp_margin"
+                        android:text="Day"
+                        android:textSize="@dimen/smallSizeFont" />
+
+                    <TextView
+
+                        android:id="@+id/summary_checkin_monthTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Month"
+                        android:textSize="@dimen/smallSizeFont" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/summary_checkout_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/summary_date_linaerlayout_margin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/check_out"
+                    android:textSize="@dimen/smallSizeFont" />
+
+                <View
+                    android:layout_width="@dimen/small_divider_width"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_gravity="center"
+                    android:background="@color/textColor" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/summary_checkout_dayTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/summary_4dp_margin"
+                        android:text="Day"
+                        android:textSize="@dimen/smallSizeFont" />
+
+                    <TextView
+                        android:id="@+id/summary_checkout_monthTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Month"
+                        android:textSize="@dimen/smallSizeFont" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/summary_totalPayment_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bottom_top_small_margin"
+            android:layout_marginLeft="@dimen/textview_left_margin"
+            android:layout_marginTop="@dimen/bottom_top_small_margin"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total"
+                android:textSize="@dimen/smallSizeFont" />
+
+            <TextView
+                android:id="@+id/summary_payment_amountTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/textview_small_side_margin"
+                android:layout_marginRight="@dimen/textview_small_side_margin"
+                android:textSize="@dimen/smallSizeFont" />
+
+            <TextView
+                android:id="@+id/summary_payment_currencyTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/smallSizeFont" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bottom_top_small_margin"
+                android:layout_marginLeft="@dimen/textview_left_margin"
+                android:layout_marginTop="@dimen/bottom_top_small_margin"
+                android:text="@string/nights"
+                android:textSize="@dimen/smallSizeFont" />
+
+            <TextView
+                android:id="@+id/summary_nightsTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bottom_top_small_margin"
+                android:layout_marginLeft="@dimen/textview_left_margin"
+                android:layout_marginTop="@dimen/bottom_top_small_margin"
+                android:text="@string/nights"
+                android:textSize="@dimen/smallSizeFont" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bottom_top_small_margin"
+            android:layout_marginLeft="@dimen/textview_left_margin"
+            android:layout_marginTop="@dimen/bottom_top_med_margin"
+            android:text="@string/booking_details" />
+
+        <LinearLayout
+            android:id="@+id/table_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bottom_top_small_margin"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/titles_conatiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/summary_roomsTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="@dimen/textview_left_margin"
+                    android:text="@string/rooms"
+                    android:textSize="@dimen/smallSizeFont" />
+
+                <TextView
+                    android:id="@+id/summary_typeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/type"
+                    android:textSize="@dimen/smallSizeFont" />
+
+                <TextView
+                    android:id="@+id/summary_priceTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/textview_left_margin"
+                    android:text="@string/price"
+                    android:textSize="@dimen/smallSizeFont" />
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/reservation_big_divider_side_margin"
+                android:layout_marginRight="@dimen/reservation_big_divider_side_margin"
+                android:background="@color/textColor" />
+
+        </LinearLayout>
+
+        <TableLayout
+            android:id="@+id/summary_booking_detail_conatiner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/summary_edge_views_top_bottom_margin"
+            android:layout_marginLeft="@dimen/largePadding"
+            android:layout_marginRight="@dimen/smallPadding"
+            android:stretchColumns="*" />
+    </LinearLayout>
+
+
+</LinearLayout>

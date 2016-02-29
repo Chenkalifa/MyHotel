@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/line_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center"
+    android:layout_marginBottom="@dimen/topNButtomPadding"
+    android:layout_marginTop="@dimen/topNButtomPadding">
+    <TextView
+        android:id="@+id/line_roomsTv"
+        android:layout_width="@dimen/reservation_spinner_width"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/reservation_spinner_margin"
+        android:layout_marginLeft="@dimen/reservation_spinner_margin"
+        android:text="@string/room"
+        android:textSize="8pt" />
+    <Spinner
+        android:popupBackground="@color/colorPrimary"
+        android:id="@+id/line_adultsSpinner"
+        android:layout_width="@dimen/reservation_spinner_width"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/reservation_spinner_margin"
+        android:layout_marginLeft="@dimen/reservation_spinner_margin"
+        android:entries="@array/adults" />
+
+    <Spinner
+        android:popupBackground="@color/colorPrimary"
+        android:id="@+id/line_childrenSpinner"
+        android:layout_width="@dimen/reservation_spinner_width"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/reservation_spinner_margin"
+        android:layout_marginLeft="@dimen/reservation_spinner_margin"
+        android:entries="@array/children" />
+</LinearLayout>
