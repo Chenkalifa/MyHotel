@@ -2,7 +2,6 @@ package hyperactive.co.il.mehearthotel;
 
 import android.app.Activity;
 import android.app.DialogFragment;
-import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -18,7 +17,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -40,7 +38,7 @@ public class LogInFragment extends DialogFragment implements View.OnClickListene
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.login_fragment_layout_new, container, false);
+        View view = inflater.inflate(R.layout.login_fragment_layout, container, false);
         ic_close= (ImageView) view.findViewById(R.id.ic_close);
         usernameEt = (EditText) view.findViewById(R.id.usernameEt);
         passwordEt = (EditText) view.findViewById(R.id.passwordEt);

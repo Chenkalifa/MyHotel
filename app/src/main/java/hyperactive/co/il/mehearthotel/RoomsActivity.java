@@ -90,25 +90,6 @@ public class RoomsActivity extends FragmentActivity//AppCompatActivity //
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rooms);
 
-//        getActionBar().setTitle(getResources().getString(R.string.rooms));
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-//
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.setDrawerListener(toggle);
-//        toggle.syncState();
-//
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -124,8 +105,6 @@ public class RoomsActivity extends FragmentActivity//AppCompatActivity //
                     startActivity(intent);
 
                 } else if (id == R.id.nav_rooms) {
-//            Intent intent=new Intent(HomeScreenActivity.this, RoomsActivity.class);
-//            startActivity(intent);
 
                 } else if (id == R.id.nav_myprofile) {
                     Intent intent = new Intent(RoomsActivity.this, MyProfileActivity.class);
@@ -139,9 +118,6 @@ public class RoomsActivity extends FragmentActivity//AppCompatActivity //
                 } else if (id == R.id.nav_contact) {
                     ContactFragment contactFragment = new ContactFragment();
                     contactFragment.show(getFragmentManager(), "contactFragment");
-
-
-
                 }
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -173,17 +149,12 @@ public class RoomsActivity extends FragmentActivity//AppCompatActivity //
                     String tempJSONArray = reservationDetails.getJSONArray("occupiedRoomsTypeList").toString();
                     if (tempJSONArray.contains(test))
                         Log.i("myApp", "from " + test + " left:" + (roomsMap.getRoomAmountByType(test) - 1));
-//                    }
                     break;
 
             }
             rfc = new RoomsFragmentAdapter(getSupportFragmentManager(), getFragments());
             roomVp.addOnPageChangeListener(mPageLitsener);
             roomVp.setAdapter(rfc);
-//            if (intent != null) {
-//                isCalledFromRoomListActivity=true;
-//                positionFromRoomListActivity=intent.getIntExtra("position",-1);
-//            }
         } catch (NullPointerException ex) {
             Log.i("myApp", "no room was chosen yet");
         } catch (JSONException e) {
@@ -204,68 +175,4 @@ public class RoomsActivity extends FragmentActivity//AppCompatActivity //
             super.onBackPressed();
         }
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.rooms, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
-//    @SuppressWarnings("StatementWithEmptyBody")
-//    //@Override
-//    public boolean onNavigationItemSelected(MenuItem item) {
-//        // Handle navigation view item clicks here.
-//        int id = item.getItemId();
-//
-//        if (id == R.id.nav_home) {
-//            Intent intent=new Intent(RoomsActivity.this, HomeScreenActivity.class);
-//            startActivity(intent);
-//
-//        } else if (id == R.id.nav_info) {
-//            Intent intent=new Intent(RoomsActivity.this, TouristInfoActivity.class);
-//            startActivity(intent);
-//
-//        } else if (id == R.id.nav_offers) {
-//            Intent intent = new Intent(RoomsActivity.this, DealsActivity.class);
-//            startActivity(intent);
-//
-//        } else if (id == R.id.nav_rooms) {
-////            Intent intent=new Intent(HomeScreenActivity.this, RoomsActivity.class);
-////            startActivity(intent);
-//
-//        } else if (id == R.id.nav_myprofile) {
-//            Intent intent=new Intent(RoomsActivity.this, MyProfileActivity.class);
-//            startActivity(intent);
-//
-//
-//        } else if (id == R.id.nav_reserv) {
-//            Intent intent = new Intent(RoomsActivity.this, ReservationActivity.class);
-//            startActivity(intent);
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
-//
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        drawer.closeDrawer(GravityCompat.START);
-//        return true;
-//    }
 }

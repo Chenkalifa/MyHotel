@@ -21,6 +21,7 @@
         android:background="@drawable/close_states" />
 
     <EditText
+        android:textColor="@color/textColor"
         android:id="@+id/signUp_usernameEt"
         android:layout_width="match_parent"
         android:layout_height="@dimen/edit_text_large_height"
@@ -73,7 +74,7 @@
         android:paddingRight="@dimen/btn_side_padding"
         android:paddingBottom="@dimen/btn_top_bottom_padding"
         android:paddingTop="@dimen/btn_top_bottom_padding"
-        android:text="@string/_continue"
+        android:text="@string/signup"
         android:textSize="@dimen/btn_text_size"
         android:textColor="@color/btn_color" />
 

@@ -1,10 +1,8 @@
 package hyperactive.co.il.mehearthotel;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -12,13 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.ParseUser;
 
@@ -30,7 +25,6 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +50,7 @@ public class MyProfileFragment extends Fragment implements ListView.OnItemClickL
         username=getResources().getString(R.string.username);
         email=getResources().getString(R.string.email);
         password=getResources().getString(R.string.password);
-        View view = inflater.inflate(R.layout.myprofile_fragment_layout_new, container, false);
+        View view = inflater.inflate(R.layout.myprofile_fragment_layout, container, false);
         usernameTv= (TextView) view.findViewById(R.id.myprofile_usernameTv);
         usernameTv.setTypeface(MyApp.FONT_MAIN);
         optionsList= (ListView) view.findViewById(R.id.myprofile_option_listView);

@@ -49,7 +49,6 @@ public class ReservationActivity extends AppCompatActivity
     MyProgressDialog progressDialog;
     ContactFragment contactFragment;
     public static final String _sharedPreferences = "HotelSharedPreferences";
-//    RelativeLayout;
     TextView check_outDateTv, check_inDateTv, numberOfDaysTv, continueResrvationBtn, check_inTV, check_outTv;
     Calendar arriveCalendar, departCalendar, currentDateCalendar, today, tempCal;
     JSONObject reservationDetails, rooms;
@@ -57,25 +56,11 @@ public class ReservationActivity extends AppCompatActivity
     LinearLayout tableContainer, check_inView, check_outView;
         int[] ids, numbers;
     int roomLists;
-    int year, month, day;
-    //    ParseObject parseRoom;
     ParseObject reservation;
     List<List<ParseObject>> allDaysReservationLog;
     ArrayList<Integer> freeRooms;
     static int linesPrinted = 1;
     RoomsMap roomsMap;
-
-//    @Override
-//    public void onWindowFocusChanged(boolean hasFocus) {
-//        super.onWindowFocusChanged(hasFocus);
-//        TextView roomsTv=(TextView)findViewById(R.id.roomsTv);
-//        TextView adultsTv=(TextView)findViewById(R.id.adultsTv);
-//        TextView childrenTv=(TextView)findViewById(R.id.childrenTv);
-//        int adultWidth=adultsTv.getWidth();
-//        int childrenWidth=childrenTv.getWidth();
-//        int roomWidt=roomsTv.getWidth();
-//        Log.i("myApp", "somthing");
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,7 +159,6 @@ public class ReservationActivity extends AppCompatActivity
                     Log.i("myApp", "objectID:" + object.getObjectId()
                             + "\nobjectClass:" + object.getClassName()
                             + "\nobjectRoomNumber:" + object.get("room_number"));
-//                    ParseObject.createWithoutData("Rooms", parseRoom.getObjectId());
                     getReservationNumberAndSave();
                 } else {
                     Log.i("myApp", e.getMessage());
@@ -226,9 +210,14 @@ public class ReservationActivity extends AppCompatActivity
         try {
             Intent intent = getIntent();
             if (intent != null) {
-                if(intent.hasExtra("type")){
-                    rooms.getJSONArray("details").getJSONObject(0).put("type", intent.getStringExtra("type"));
-                    Log.i("myApp", intent.getStringExtra("type"));
+                if(intent.hasExtra("type")&&intent.hasExtra("price")){
+                    JSONObject roomInfo = new JSONObject();
+                    roomInfo.put("type", intent.getStringExtra("type"));
+                    roomInfo.put("price", intent.getStringExtra("price"));
+                    JSONArray roomsDetailsArr = new JSONArray();
+                    roomsDetailsArr.put(roomInfo);
+                    rooms.put("details", roomsDetailsArr);
+                    Log.i("myApp", "in reservation type="+intent.getStringExtra("type")+" price="+intent.getStringExtra("price"));
                 }
             }
         } catch (NullPointerException ex) {
@@ -237,8 +226,6 @@ public class ReservationActivity extends AppCompatActivity
             Log.e("myApp", "JSON exception", e);
         }
 
-//        SharedPreferences sharedPreferences=getSharedPreferences(_sharedPreferences, Activity.MODE_PRIVATE);
-//        Log.i("myApp", sharedPreferences.getString("room", "room wasn't chosen yet"));
         updateDates();
         roomsSpn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -263,11 +250,9 @@ public class ReservationActivity extends AppCompatActivity
                     DateTime checkin=new DateTime(arriveCalendar);
                     reservationDetails.put("check_in", checkin);
                     DateTime checkout=new DateTime(departCalendar);
-//                    String.format("%tD", arriveCalendar
                     reservationDetails.put("check_out", checkout);
                     reservationDetails.put("nights", checkDatesGap());
                     rooms.put("amount", roomsSpn.getSelectedItem());
-//                    reservationDetails.put("rooms", roomsSpn.getSelectedItem());
                     int childViewNum = tableContainer.getChildCount();
                     Log.i("myApp", "in res, cuntinue, childNumber="+childViewNum);
                     int index = childViewNum - 1;
@@ -286,9 +271,6 @@ public class ReservationActivity extends AppCompatActivity
                         roomInfo.put(getResources().getString(R.string.adults), tempAdultSpn.getSelectedItem());
                         roomInfo.put(getResources().getString(R.string.children), tempChildSpn.getSelectedItem());
                         roomsDetailsArr.put(roomInfo);
-//                        String roomNumber=getResources().getString(R.string.room)+(i+1);
-//                        reservationDetails.put(roomNumber+getResources().getString(R.string.adults), tempAdultSpn.getSelectedItem());
-//                        reservationDetails.put(roomNumber+getResources().getString(R.string.children), tempChildSpn.getSelectedItem());
                     }
                     rooms.put("details", roomsDetailsArr);
                     reservationDetails.put("rooms", rooms);
@@ -312,10 +294,6 @@ public class ReservationActivity extends AppCompatActivity
                     mMonth = departCalendar.get(Calendar.MONTH);
                     mDay = departCalendar.get(Calendar.DAY_OF_MONTH);
                 }
-//                Calendar mcurrentDate=Calendar.getInstance();
-//                int mYear=mcurrentDate.get(Calendar.YEAR);
-//                int mMonth=mcurrentDate.get(Calendar.MONTH);
-//                int mDay=mcurrentDate.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog mDatePicker = new DatePickerDialog(ReservationActivity.this, new DatePickerDialog.OnDateSetListener() {
 
@@ -368,8 +346,6 @@ public class ReservationActivity extends AppCompatActivity
 
                 private void logOccupiedRooms() {
                     List<Integer> occupiedRoomsList = new ArrayList<Integer>();
-//                    Log.i("myApp", "inside logOccupiedRooms");
-//                    Log.i("myApp", "number of lists=" + allDaysReservationLog.size());
                     for (List<ParseObject> dayList : allDaysReservationLog) {
                         int counter = 1;
                         Log.i("myApp", "List:" + counter);
@@ -377,7 +353,6 @@ public class ReservationActivity extends AppCompatActivity
 
                             ParseObject obj = reservation.getParseObject("room");
                             if (obj != null) {
-//                                Log.i("myApp", "room id:" + room.getObjectId());
                                 try {
                                     ParseObject room = obj.fetch();
                                     int roomNumber = room.getInt("room_number");
@@ -400,14 +375,6 @@ public class ReservationActivity extends AppCompatActivity
                     freeRoomsList.removeAll(occupiedRoomsList);
                     Log.i("myApp", "free rooms:" + freeRoomsList.toString());
                     try {
-//                        JSONArray occupiedRoomsListJSONArray = new JSONArray();
-//                        for (int i=0; i < occupiedRoomsList.size(); i++) {
-//                            occupiedRoomsListJSONArray.put(occupiedRoomsList.get(i));
-//                        }
-//                        JSONArray freeRoomsListJSONArray = new JSONArray();
-//                        for (int i=0; i < freeRoomsList.size(); i++) {
-//                            freeRoomsListJSONArray.put(freeRoomsList.get(i));
-//                        }
                         reservationDetails.put("occupiedRoomsList", new JSONArray(occupiedRoomsList));
                         reservationDetails.put("freeRoomsList", new JSONArray(freeRoomsList));
                         List<String> occupiedRoomsTypeList = new ArrayList<String>();
@@ -417,13 +384,11 @@ public class ReservationActivity extends AppCompatActivity
                         }
                         reservationDetails.put("occupiedRoomsTypeList", new JSONArray(occupiedRoomsTypeList));
                         int roomAmount = (int) roomsSpn.getSelectedItem();
-//                        progressDialog.dismiss();
                         Log.i("myApp", reservationDetails.toString());
                         callRoomListActivity(roomAmount);
                     } catch (JSONException ex) {
                         Log.e("myApp", "JSON exception", ex);
                     }
-//                    for(Integer i:freeRoomsList)
                 }
             });
             tempCal.add(Calendar.DAY_OF_MONTH, 1);
@@ -437,8 +402,9 @@ public class ReservationActivity extends AppCompatActivity
         }
         try {
             if (roomAmount == 1 && (rooms.getJSONArray("details").getJSONObject(0).has("type"))) {
-                // go directly to Booking Summary fragment
-                Log.i("myApp", " go directly to Booking Summary fragment");
+                // future option go directly to Booking Summary fragment
+                SummaryFragment summaryFragment = new SummaryFragment();
+                summaryFragment.show(getFragmentManager(), "summaryFragment");
 
             } else {
                 Intent intent = new Intent(this, RoomListActivity.class);

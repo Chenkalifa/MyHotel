@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,8 +15,6 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -40,7 +37,7 @@ public class SignUpFragment extends DialogFragment implements View.OnClickListen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.signup_fragment_layout_new, container, false);
+        View view=inflater.inflate(R.layout.signup_fragment_layout, container, false);
         ic_close= (ImageView) view.findViewById(R.id.ic_close);
         usernameEt= (EditText) view.findViewById(R.id.signUp_usernameEt);
         usernameEt.setTypeface(MyApp.FONT_MAIN);

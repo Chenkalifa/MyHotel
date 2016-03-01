@@ -41,6 +41,7 @@ public class RoomFragment extends Fragment {
     List<Integer> occupiedRoomsList, freeRoomsList;
     List<String> occupiedRoomsTypeList;
     JSONObject reservationDetails;
+    boolean isCalledFromRoomListActivity;
 
     public static final RoomFragment newInstance(Context context, String roomType,int price, int image){
         RoomFragment rf=new RoomFragment();
@@ -52,39 +53,12 @@ public class RoomFragment extends Fragment {
         rf.context=context;
         return rf;
     }
-//     @Override
-//    public void onDetach() {
-//         Log.i("myApp", "in room fragment onDetach..");
-//         RoomListActivity.isPressedBackFromFragment=true;
-////         (RoomListActivity)getActivity()
-//         super.onDetach();
-//    }
-//
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.i("myApp", "in room fragment onResume..");
-//        getView().setFocusableInTouchMode(true);
-//        getView().requestFocus();
-//        getView().setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//
-//                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-//                    RoomListActivity.isPressedBackFromFragment=true;
-//                    // handle back button's click listener
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
-    }
-
 
 
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        isCalledFromRoomListActivity=RoomsActivity.isCalledFromRoomListActivity;
         Log.i("myApp", "in room fragment onCreateView..");
         Intent intent=getActivity().getIntent();
         JSONArray tempJArray;
@@ -113,7 +87,6 @@ public class RoomFragment extends Fragment {
             }
         }
 
-//        return super.onCreateView(inflater, container, savedInstanceState);
         View view=inflater.inflate(R.layout.room_fragment_layout, container, false);
         final String type=getArguments().getString(_roomType);
         final int image=getArguments().getInt(_roomImage);
@@ -128,8 +101,7 @@ public class RoomFragment extends Fragment {
         Log.i("myApp", "in room fragment,roomType=" + mtype);
         CurrentRoomsMap currentRoomsMap=CurrentRoomsMap.initializeRooms();
         currentRoomsMap.updateAvilableRoomsList(occupiedRoomsList);
-//        CurrentRoomsMap currentRoomsMap=CurrentRoomsMap.getCurrentRoomsMap(occupiedRoomsList);
-//        int  availableAmount=0;
+
         if(currentRoomsMap.hasType(mtype)){
             availableAmount=currentRoomsMap.getRoomAmountByType(mtype);
 
@@ -149,9 +121,6 @@ public class RoomFragment extends Fragment {
             availableAmount=0;
         }
         switch(availableAmount){
-//            case 1:
-//                result=": "+availableAmount+" "+getResources().getString(R.string.room)+" "+getResources().getString(R.string.left);
-//                break;
             case 0:
                 result=": not available at your dates";
                 LinearLayout ll= (LinearLayout) view.findViewById(R.id.roomPriceAvilabilityContainer);
@@ -168,15 +137,15 @@ public class RoomFragment extends Fragment {
         ImageView roomImage=(ImageView)view.findViewById(R.id.roomImage);
         TextView bookBtn=(TextView)view.findViewById(R.id.bookBtn);
         bookBtn.setTypeface(MyApp.FONT_SECONDARY);
+        if (!isCalledFromRoomListActivity)
+            bookBtn.setText(R.string.go_to_reservation);
         final SharedPreferences sharedPreferences=context.getSharedPreferences(_sharedPreferences, Activity.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
         bookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Log.i("myApp", "book "+type);
                 RoomListActivity.isPressedBackFromFragment=false;
-                boolean isCalledFromRoomListActivity=RoomsActivity.isCalledFromRoomListActivity;
-//                Log.i("myApp", "isCalledFromRoomListActivity:"+isCalledFromRoomListActivity);
+
                 if(isCalledFromRoomListActivity){
                     if(availableAmount !=0){
                         try{
@@ -203,6 +172,7 @@ public class RoomFragment extends Fragment {
                     Intent intent=new Intent(context, ReservationActivity.class);
                     intent.putExtra("type", type);
                     intent.putExtra("price", price);
+                    Log.i("myApp", "in room fragment, type=" + type + " price=" + price);
                     startActivity(intent);
                 }
             }

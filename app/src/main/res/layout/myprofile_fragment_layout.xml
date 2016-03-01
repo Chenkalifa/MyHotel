@@ -1,93 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/simpleActivity_style"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AppTheme"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:columnCount="2"
-    android:gravity="center|center_horizontal"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
 
     <TextView
+        android:layout_marginTop="@dimen/myprofile_username_tv_margin"
+        android:layout_marginBottom="@dimen/myprofile_username_tv_margin"
+        android:layout_marginLeft="@dimen/myprofile_username_tv_left_margin"
         android:id="@+id/myprofile_usernameTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/username"
         android:textAlignment="center" />
-
-    <TextView
-        android:layout_marginLeft="@dimen/largePadding"
-        android:id="@+id/myprofile_usernamevalueTv"
+    <ListView
+        android:layout_marginLeft="@dimen/myprofile_list_left_margin"
+        android:layout_below="@+id/myprofile_usernameTv"
+        android:layout_centerInParent="true"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="@dimen/myprofile_listview_divider_height"
+        android:id="@+id/myprofile_option_listView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/myprofile_emailTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/email"
-        android:textAlignment="center" />
-
-    <TextView
-        android:layout_marginLeft="@dimen/largePadding"
-        android:id="@+id/myprofile_emailvalueTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/email"
-        android:textAlignment="center" />
-
-
-    <TextView
-        android:background="@drawable/textviewbackgroundshape_small"
-        android:layout_margin="@dimen/smallPadding"
-        android:id="@+id/myprofile_edit_usernameBtn"
-        android:layout_width="@dimen/myprofile_button_width"
-        android:layout_height="wrap_content"
-        android:layout_columnSpan="2"
-        android:gravity="center"
-        android:text="@string/edit_username"
-        android:textAlignment="center" />
-
-    <TextView
-        android:background="@drawable/textviewbackgroundshape_small"
-        android:layout_margin="@dimen/smallPadding"
-        android:id="@+id/myprofile_edit_emailBtn"
-        android:layout_width="@dimen/myprofile_button_width"
-        android:layout_height="wrap_content"
-        android:layout_columnSpan="2"
-        android:text="@string/edit_email"
-        android:textAlignment="center" />
-    <TextView
-        android:background="@drawable/textviewbackgroundshape_small"
-        android:layout_margin="@dimen/smallPadding"
-        android:layout_columnSpan="2"
-        android:id="@+id/myprofile_edit_password"
-        android:layout_width="@dimen/myprofile_button_width"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/change_password"
-        android:textAlignment="center" />
-    <TextView
-        android:background="@drawable/textviewbackgroundshape_small"
-        android:layout_margin="@dimen/smallPadding"
-        android:layout_columnSpan="2"
-        android:id="@+id/myprofile_reservation_upcomingBtn"
-        android:layout_width="@dimen/myprofile_button_width"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/reservation_upcoming"
-        android:textAlignment="center" />
-    <TextView
-        android:background="@drawable/textviewbackgroundshape_small"
-        android:layout_margin="@dimen/smallPadding"
-        android:layout_columnSpan="2"
-        android:id="@+id/myprofile_reservation_historyBtn"
-        android:layout_width="@dimen/myprofile_button_width"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/reservation_history"
-        android:textAlignment="center" />
-
-
-</GridLayout>
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

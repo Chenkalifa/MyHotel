@@ -178,104 +178,11 @@ public class SummaryFragment extends DialogFragment implements View.OnClickListe
                 FillResInfoJob fillResInfoJob=new FillResInfoJob(reservation, type);
                 fillResInfoJob.start();
             }
-//            for (int i = 0; i < roomAmount; i++) {
-//                reservation = new ParseObject("Reservations");
-//                reservation.put("nights", reservationDetails.getInt("nights"));
-//                reservation.put("arrive_date", new DateTime(reservationDetails.getString("check_in")).toDate());
-//                reservation.put("depart_date", new DateTime(reservationDetails.getString("check_out")).toDate());
-//                final int position = i;
-//                String type = reservationDetails.getJSONObject("rooms").getJSONArray("details")
-//                        .getJSONObject(i).getString("type").toLowerCase().replace(" ", "_");
-//
-//                ParseQuery<ParseObject> roomQuery = ParseQuery.getQuery("Rooms");
-//                roomQuery.whereEqualTo("type", type);
-//                roomQuery.whereContainedIn("room_number", freeRoomsList);
-//                roomQuery.findInBackground(new FindCallback<ParseObject>() {
-//                    @Override
-//                    public void done(List<ParseObject> objects, ParseException e) {
-//                        if (e == null) {
-//                            try {
-//                                int x = 0;
-//                                while (!freeRoomsList.contains(objects.get(x).fetch().getInt("room_number"))) {
-//                                    x++;
-//                                }
-//                                ParseObject room = objects.get(x).fetch();
-//                                int roomNumber = room.getInt("room_number");
-//                                reservation.put("room", room);
-//                            } catch (ParseException ex) {
-//                                Log.i("myApp", ex.getMessage());
-//                            }
-//
-//                        } else {
-//                            Log.i("myApp", e.getMessage());
-//                        }
-//                    }
-//                });
-//                ParseQuery<ParseObject> counterQuery = ParseQuery.getQuery("Global_Setting");
-//                counterQuery.whereEqualTo("objectId", "FduHMFExBg");
-//                counterQuery.getFirstInBackground(new GetCallback<ParseObject>() {
-//                    @Override
-//                    public void done(ParseObject object, ParseException e) {
-//                        if (e == null) {
-//                            Log.i("myApp", "counter=" + object.get("counter"));
-//                            reservation.put("reservation_number", object.getInt("counter"));
-//                            object.increment("counter");
-//                            Log.i("myApp", "counter++=" + object.get("counter"));
-//                            try {
-//                                object.save();
-//                            } catch (ParseException e1) {
-//                                Log.e("myApp", "save parseObject error", e1);
-//                            }
-//                        } else {
-//                            Log.i("myApp", e.getMessage());
-//                        }
-//                    }
-//                });
-//                reservation.saveInBackground(new SaveCallback() {
-//                    @Override
-//                    public void done(ParseException e) {
-//                        if (e == null) {
-//                            Log.i("myApp", "reservation saved");
-//                            tempCounter++;
-//                            if (tempCounter == roomAmount) {
-//                                progressDialog.dismiss();
-//                                ((RoomListActivity) getActivity()).postResSaved();
-//                            }
-//                        } else
-//                            Log.i("myApp", e.getMessage());
-//                    }
-//                });
-//            }
         } catch (JSONException ex) {
             Log.e("myApp", "json error", ex);
         }
     }
 
-//    private void getReservationNumber() {
-//        ParseQuery<ParseObject> counterQuery = ParseQuery.getQuery("Global_Setting");
-//        counterQuery.whereEqualTo("objectId", "FduHMFExBg");
-//        counterQuery.getFirstInBackground(new GetCallback<ParseObject>() {
-//            @Override
-//            public void done(ParseObject object, ParseException e) {
-//                if (e == null) {
-//                    Log.i("myApp", "counter=" + object.get("counter"));
-//                    object.increment("counter");
-//                    Log.i("myApp", "counter++=" + object.get("counter"));
-//                    resNUMBERSlist.add((Integer) object.get("counter"));
-//                    Log.i("myApp", resNUMBERSlist.toString());
-////                    Log.i("myApp", "nextReservationNumber=" + nextReservationNumber);
-//                    try {
-//                        object.save();
-//                    } catch (ParseException e1) {
-//                        Log.e("myApp", "save parseObject error", e1);
-//                    }
-////                    Log.i("myApp", "counter=" + object.get("counter"));
-//                } else {
-//                    Log.i("myApp", e.getMessage());
-//                }
-//            }
-//        });
-//    }
     private class ResNumberJob extends Thread{
     @Override
     public void run() {
@@ -315,52 +222,6 @@ public class SummaryFragment extends DialogFragment implements View.OnClickListe
     }
 }
 
-    private class GetResNumberJob extends Thread{
-        ParseObject reservation;
-        String type;
-
-        public GetResNumberJob(ParseObject reservation, String type){
-            this.reservation=reservation;
-            this.type=type;
-        }
-
-        @Override
-        public void run() {
-            Log.i("myApp", "GetResNumberJob, started - type=" + type);
-            if(reservationNumber!=0){
-                runNextJob();
-            }else{
-                ParseQuery<ParseObject> counterQuery = ParseQuery.getQuery("Global_Setting");
-                counterQuery.whereEqualTo("objectId", "FduHMFExBg");
-                counterQuery.getFirstInBackground(new GetCallback<ParseObject>() {
-                    @Override
-                    public void done(ParseObject object, ParseException e) {
-                        if (e == null) {
-                            reservationNumber=object.getInt("counter");
-                            Log.i("myApp", "counter=" + object.getInt("counter"));
-                            object.increment("counter");
-                            Log.i("myApp", "counter++=" + object.getInt("counter"));
-                            try {
-                                object.save();
-                                runNextJob();
-                            } catch (ParseException e1) {
-                                Log.e("myApp", "save parseObject error", e1);
-                            }
-                        } else {
-                            Log.i("myApp", e.getMessage());
-                        }
-                    }
-                });
-            }
-        }
-
-        private void runNextJob() {
-            Log.i("myApp", "GetResNumberJob, runNextJob");
-            reservation.put("reservation_number",reservationNumber);
-            FillResInfoJob fillResInfoJob=new FillResInfoJob(reservation, type);
-            fillResInfoJob.start();
-        }
-    }
 
     private class FillResInfoJob extends Thread{
         ParseObject reservation;
@@ -423,57 +284,6 @@ public class SummaryFragment extends DialogFragment implements View.OnClickListe
             Log.i("myApp", "checkIfNeedMoreRes - tempCounter="+tempCounter);
             if (tempCounter == roomAmount)
                 ((RoomListActivity) getActivity()).postResSaved(reservationNumber);
-//            else {
-//                GetResNumberJob getResNumberJob=new GetResNumberJob(reservation, type);
-//                getResNumberJob.start();
-//            }
         }
     }
-
-//    private void continueFillingResInfo(String type, int mreservationNumber) {
-//        final int reservationNumber = mreservationNumber;
-//        ParseQuery<ParseObject> roomQuery = ParseQuery.getQuery("Rooms");
-//        roomQuery.whereEqualTo("type", type);
-//        roomQuery.findInBackground(new FindCallback<ParseObject>() {
-//            @Override
-//            public void done(List<ParseObject> objects, ParseException e) {
-//                if (e == null) {
-//                    int x = 0;
-//                    try {
-//                        while (!freeRoomsList.contains(objects.get(x).fetch().getInt("room_number"))) {
-//                            x++;
-//                        }
-//                        ParseObject room = objects.get(x).fetch();
-//                        int roomNumber = room.getInt("room_number");
-//                        reservation.put("room", room);
-//                        reservation.put("reservation_number", reservationNumber);
-//                        reservation.saveInBackground(new SaveCallback() {
-//                            @Override
-//                            public void done(ParseException e) {
-//                                if (e == null) {
-//                                    tempCounter++;
-//                                    Log.i("myApp", "reservation saved");
-//                                    if (tempCounter == roomAmount)
-//                                        ((RoomListActivity) getActivity()).postResSaved();
-//                                } else
-//                                    Log.i("myApp", e.getMessage());
-//                            }
-//                        });
-//
-//
-////                                getReservationNumber();
-//
-//
-//                    } catch (ParseException e1) {
-//                        Log.e("myApp", "ParseException", e1);
-//                    }
-//
-//
-//                } else {
-//                    Log.i("myApp", e.getMessage());
-//                }
-//            }
-//        });
-//
-//    }
 }

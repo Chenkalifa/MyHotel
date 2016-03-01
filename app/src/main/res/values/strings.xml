@@ -88,5 +88,6 @@
     <string name="hello">"Hello"</string>
     <string name="res_number">reservation number:</string>
     <string name="nights">Nights</string>
+    <string name="go_to_reservation">Go to Reservation</string>
 
 </resources>
