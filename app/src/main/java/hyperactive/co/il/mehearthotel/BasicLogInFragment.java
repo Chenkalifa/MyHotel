@@ -5,6 +5,8 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -45,6 +47,7 @@ public class BasicLogInFragment extends DialogFragment implements View.OnClickLi
         loginBtn.setOnClickListener(this);
         cancelBtn.setOnClickListener(this);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         Log.i("myApp", "logInFragment - onCreateView " + (args != null ? args.toString() : "args is null"));
         return view;
     }

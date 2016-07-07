@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <!--   <item name="android:background">@color/backgroundColor</item> -->
         <item name="android:textColor">@color/textColor</item>
-        <item name="android:colorBackground">@drawable/backround</item>
+        <item name="android:colorBackground">@drawable/background</item>
         <item name="android:actionMenuTextColor">@color/textColor</item>
         <!--   <item name="android:fontFamily">sans-serif-medium</item> -->
     </style>
@@ -19,9 +19,10 @@
         <item name="android:textSize">@dimen/mediumSizeFont</item>
     </style>
 
-    <style name="NoActionBar" parent="AppTheme.NoActionBar">
+    <style name="NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:colorBackground">@drawable/background</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">

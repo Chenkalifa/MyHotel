@@ -29,6 +29,7 @@ public class MyProfileActivity extends AppCompatActivity
     NotLoggedFragment notLoggedFragment;
     ContactFragment contactFragment;
     BasicLogInFragment basicLogInFragment;
+    LogInFragment logInFragment;
     SignUpFragment signUpFragment;
     MyProfileFragment myProfileFragment;
     FragmentManager manager;
@@ -63,6 +64,7 @@ public class MyProfileActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        signUpFragment=new SignUpFragment();
 
     }
 
@@ -176,16 +178,19 @@ public class MyProfileActivity extends AppCompatActivity
         Log.i("myApp", "id:" + id);
         switch (id) {
             case R.id.myprofile_loginBtn:
-                if (basicLogInFragment == null)
-                    basicLogInFragment = new BasicLogInFragment();
-                basicLogInFragment.show(manager, "basicLogInFragment");
+                if (logInFragment == null)
+                    logInFragment=new LogInFragment();
+//                    basicLogInFragment = new BasicLogInFragment();
+                logInFragment.show(manager, "LogInFragment");
+//                basicLogInFragment.show(manager, "basicLogInFragment");
                 break;
             case R.id.myprofile_signupBtn:
                 if (signUpFragment == null)
                     signUpFragment = new SignUpFragment();
-                fragmentTransaction.replace(R.id.myprofile_conatiner, signUpFragment, "signUpFragment");
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                signUpFragment.show(manager, "signUpFragment");
+//                fragmentTransaction.replace(R.id.myprofile_conatiner, signUpFragment, "signUpFragment");
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
                 break;
         }
 
